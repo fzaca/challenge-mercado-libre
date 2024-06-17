@@ -23,23 +23,35 @@ const HomePage = ({ searchQuery }) => {
     setPage(newPage);
   };
 
+  const renderPagination = () => {
+    let pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === 1 || i === totalPages || (i >= page - 1 && i <= page + 1)) {
+        pages.push(
+          <button
+            key={i}
+            className={`join-item btn ${page === i ? 'btn-active' : ''}`}
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </button>
+        );
+      } else if (i === 2 || i === totalPages - 1) {
+        pages.push(
+          <button key={i} className="join-item btn btn-disabled">...</button>
+        );
+      }
+    }
+    return pages;
+  };
+
   return (
     <div className="home-page">
       {loading && <span className="loading loading-dots loading-lg"></span>}
       {error && <p>Error fetching products</p>}
       {products && <ProductList products={products.results} />}
       <div className="join mt-4">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
-          <input
-            key={pageNumber}
-            className="join-item btn btn-square"
-            type="radio"
-            name="options"
-            aria-label={pageNumber}
-            checked={page === pageNumber}
-            onChange={() => handlePageChange(pageNumber)}
-          />
-        ))}
+        {renderPagination()}
       </div>
     </div>
   );
