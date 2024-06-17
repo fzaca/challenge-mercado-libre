@@ -9,6 +9,7 @@ const ProductDetail = () => {
   const { data: descriptionData } = useFetch(`https://api.mercadolibre.com/items/${id}/description`);
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
+  const [currentImage, setCurrentImage] = useState(0);
 
   if (loading) return <p className="loading loading-ring loading-lg"></p>;
   if (error) return <p>Error loading product</p>;
@@ -19,22 +20,29 @@ const ProductDetail = () => {
     <div className="product-detail container mx-auto p-4">
       <div className="card w-full bg-base-300 shadow-xl">
         <figure>
-          {product.pictures && product.pictures.length > 0 ? (
-            <div className="carousel w-full">
-              {product.pictures.map((picture, index) => (
-                <div key={index} id={`slide${index + 1}`} className="carousel-item relative w-full">
-                  <img src={picture.url} alt={product.title} className="object-contain w-full h-96 rounded" />
-                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href={`#slide${index === 0 ? product.pictures.length : index}`} className="btn btn-circle">❮</a>
-                    <a href={`#slide${(index + 2) > product.pictures.length ? 1 : index + 2}`} className="btn btn-circle">❯</a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <img src={product.thumbnail} alt={product.title} className="object-contain w-full h-96 rounded" />
-          )}
+          <img
+            src={product.pictures && product.pictures.length > 0 ? product.pictures[currentImage].url : product.thumbnail}
+            alt={product.title}
+            className="object-contain w-full h-96 rounded"
+          />
         </figure>
+        <div className="carousel rounded-box">
+          {product.pictures && product.pictures.length > 0 ? (
+            product.pictures.map((picture, index) => (
+              <div
+                key={index}
+                className={`carousel-item ${currentImage === index ? 'border-2 border-secondary border-primary' : ''}`}
+                onClick={() => setCurrentImage(index)}
+              >
+                <img src={picture.url} alt={product.title} className="object-contain h-24 cursor-pointer" />
+              </div>
+            ))
+          ) : (
+            <div className="carousel-item">
+              <img src={product.thumbnail} alt={product.title} className="object-contain h-24" />
+            </div>
+          )}
+        </div>
         <div className="card-body">
           <h1 className="card-title text-2xl font-bold">{product.title}</h1>
           <p className="text-lg text-gray-700">${product.price.toFixed(2)}</p>
