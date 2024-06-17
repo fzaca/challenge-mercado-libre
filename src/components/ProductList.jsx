@@ -13,7 +13,7 @@ const ProductList = ({ products }) => {
     <div className="flex flex-col w-full">
       {products.map(product => (
         <React.Fragment key={product.id}>
-          <Link to={`/product/${product.id}`} className="card card-side bg-base-100 shadow-xl hover:bg-accent transition m-2 p-2 bg-primary">
+          <Link to={`/product/${product.id}`} className="card card-side bg-base-100 shadow-xl hover:bg-accent transition m-2 p-2 bg-primary glass">
             <ImageWithLoader src={product.thumbnail} alt={product.title} />
             <div className="card-body p-4">
               <h2 className="card-title text-lg font-semibold">{truncateTitle(product.title, 40)}</h2>

@@ -10,7 +10,7 @@ const Navbar = ({ onSearch }) => {
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 flex flex-col sm:flex-row sm:justify-between">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

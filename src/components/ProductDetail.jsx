@@ -18,7 +18,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail container mx-auto p-4">
-      <div className="card w-full bg-base-300 shadow-xl">
+      <div className="card w-full bg-base-300 shadow-xl glass">
         <figure>
           <img
             src={product.pictures && product.pictures.length > 0 ? product.pictures[currentImage].url : product.thumbnail}
