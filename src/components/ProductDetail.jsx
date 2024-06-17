@@ -29,10 +29,11 @@ const ProductDetail = () => {
         <div className="carousel flex justify-center">
           {product.pictures && product.pictures.length > 0 ? (
             product.pictures.map((picture, index) => (
-              <div
+            <div
                 key={index}
-                className={`carousel-item cursor-pointer ${currentImage === index ? 'border-2 border-primary' : ''}`}
+                className={`carousel-item cursor-pointer ${currentImage === index ? 'border-2 border-primary box-border' : 'box-border'}`}
                 onClick={() => setCurrentImage(index)}
+                style={{ width: '6rem', height: '6rem' }}
               >
                 <img src={picture.url} alt={product.title} className="object-cover h-24 w-24" />
               </div>
