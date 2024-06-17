@@ -24,5 +24,3 @@ function ThemeController() {
 }
 
 export default ThemeController;
-
-    themes: ["light", "dark", "cupcake", "retro", "cyberpunk", "valentine", "aqua"]
