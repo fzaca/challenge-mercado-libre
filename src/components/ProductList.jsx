@@ -2,20 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductList = ({ products }) => {
+  const truncateTitle = (title, maxLength) => {
+    if (title.length > maxLength) {
+      return title.substring(0, maxLength) + '...';
+    }
+    return title;
+  };
+
   return (
     <div className="flex flex-col w-full">
       {products.map(product => (
         <React.Fragment key={product.id}>
-          <Link to={`/product/${product.id}`} className="grid h-20 card bg-base-300 rounded-box place-items-center p-4 hover:bg-base-200 transition">
-            <div className="flex items-center w-full">
-              <ImageWithLoader src={product.thumbnail} alt={product.title} />
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold">{product.title}</span>
-                <span className="text-sm text-gray-500">${product.price}</span>
-              </div>
+          <Link to={`/product/${product.id}`} className="card card-side bg-base-100 shadow-xl hover:bg-base-200 transition m-2 p-2 bg-secondary">
+            <ImageWithLoader src={product.thumbnail} alt={product.title} />
+            <div className="card-body p-4">
+              <h2 className="card-title text-lg font-semibold">{truncateTitle(product.title, 40)}</h2>
+              <p className="text-sm text-gray-500">${product.price.toFixed(2)}</p>
             </div>
           </Link>
-          <div className="divider"></div>
         </React.Fragment>
       ))}
     </div>
@@ -34,7 +38,7 @@ const ImageWithLoader = ({ src, alt }) => {
   };
 
   return (
-    <div className="relative w-16 h-16 mr-4">
+    <div className="relative w-24 h-24">
       {loading && <span className="loading loading-ring loading-lg absolute inset-0 m-auto"></span>}
       <img 
         src={src} 
