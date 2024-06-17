@@ -10,7 +10,7 @@ const Navbar = ({ onSearch }) => {
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -36,7 +36,7 @@ const Navbar = ({ onSearch }) => {
                 <span className="badge badge-sm indicator-item">{totalItems}</span>
               </div>
             </div>
-            <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+            <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-300 shadow">
               <div className="card-body">
                 <span className="font-bold text-lg">{totalItems} Items</span>
                 <span className="text-info">Subtotal: ${totalPrice.toFixed(2)}</span>
