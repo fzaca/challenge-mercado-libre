@@ -6,7 +6,6 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar';
-import ThemeController from "./components/ThemeController";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,9 +17,8 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="App">
+        <div className="App max-w-screen-md mx-auto p-4">
           <Navbar onSearch={handleSearch} />
-          <ThemeController />
           <Routes>
             <Route path="/" element={<HomePage searchQuery={searchQuery} />} />
             <Route path="/product/:id" element={<ProductPage />} />
