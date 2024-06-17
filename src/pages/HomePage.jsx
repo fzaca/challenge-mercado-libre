@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import ProductList from '../components/ProductList';
 import useFetch from '../hooks/useFetch';
 
-const HomePage = () => {
-  const [query, setQuery] = useState('');
+const HomePage = ({ searchQuery }) => {
+  const [query, setQuery] = useState(searchQuery || '');
   const { data: products, loading, error } = useFetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
+
+  useEffect(() => {
+    setQuery(searchQuery);
+  }, [searchQuery]);
 
   return (
     <div className="home-page">
