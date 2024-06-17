@@ -64,7 +64,7 @@ const ProductDetail = () => {
           >
             Añadir al carrito
           </button>
-          <div className="text-gray-600 mb-4 h-[600px] overflow-y-auto p-2 rounded">
+          <div className="text-gray-600 mb-4 max-h-[600px] overflow-y-auto p-2 rounded">
             {description}
           </div>
           <div className="stats shadow mb-4">
