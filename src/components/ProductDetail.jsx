@@ -23,23 +23,23 @@ const ProductDetail = () => {
           <img
             src={product.pictures && product.pictures.length > 0 ? product.pictures[currentImage].url : product.thumbnail}
             alt={product.title}
-            className="object-contain w-full h-96 rounded"
+            className="object-cover w-full h-96 rounded"
           />
         </figure>
-        <div className="carousel rounded-box">
+        <div className="carousel flex justify-center">
           {product.pictures && product.pictures.length > 0 ? (
             product.pictures.map((picture, index) => (
               <div
                 key={index}
-                className={`carousel-item ${currentImage === index ? 'border-2 border-secondary border-primary' : ''}`}
+                className={`carousel-item cursor-pointer ${currentImage === index ? 'border-2 border-primary' : ''}`}
                 onClick={() => setCurrentImage(index)}
               >
-                <img src={picture.url} alt={product.title} className="object-contain h-24 cursor-pointer" />
+                <img src={picture.url} alt={product.title} className="object-cover h-24 w-24" />
               </div>
             ))
           ) : (
             <div className="carousel-item">
-              <img src={product.thumbnail} alt={product.title} className="object-contain h-24" />
+              <img src={product.thumbnail} alt={product.title} className="object-cover h-24 w-24" />
             </div>
           )}
         </div>
