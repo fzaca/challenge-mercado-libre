@@ -6,7 +6,7 @@ const HomePage = ({ searchQuery }) => {
   const [query, setQuery] = useState(searchQuery || '');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 10;
   const { data: products, loading, error } = useFetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page - 1) * itemsPerPage}&limit=${itemsPerPage}`);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const HomePage = ({ searchQuery }) => {
   };
 
   return (
-    <div className="home-page">
+    <div className="home-page flex flex-col items-center">
       {loading && <span className="loading loading-dots loading-lg"></span>}
       {error && <p>Error fetching products</p>}
       {products && <ProductList products={products.results} />}
