@@ -12,7 +12,7 @@ const HomePage = ({ searchQuery }) => {
 
   return (
     <div className="home-page">
-      {loading && <p>Loading...</p>}
+      {loading && <span className="loading loading-dots loading-lg"></span>}
       {error && <p>Error fetching products</p>}
       {products && <ProductList products={products.results} />}
     </div>
