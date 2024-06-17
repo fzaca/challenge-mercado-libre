@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import Navbar from './components/Navbar';
 import ThemeController from "./components/ThemeController";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <CartProvider>
       <Router>
         <div className="App">
+          <Navbar />
           <ThemeController />
           <Routes>
             <Route path="/" element={<HomePage />} />
