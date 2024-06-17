@@ -26,12 +26,12 @@ const ProductDetail = () => {
             className="object-cover w-full h-96 rounded"
           />
         </figure>
-        <div className="carousel flex justify-center mt-4">
+        <div className="carousel flex justify-center">
           {product.pictures && product.pictures.length > 0 ? (
             product.pictures.map((picture, index) => (
               <div
                 key={index}
-                className={`carousel-item cursor-pointer ${currentImage === index ? 'border-2 border-primary box-border' : 'box-border'}`}
+                className={`carousel-item cursor-pointer ${currentImage === index ? 'border-4 border-primary box-border' : 'box-border'}`}
                 onClick={() => setCurrentImage(index)}
                 style={{ width: '6rem', height: '6rem' }}
               >
@@ -64,7 +64,9 @@ const ProductDetail = () => {
           >
             Añadir al carrito
           </button>
-          <p className="text-gray-600 mb-4">{description}</p>
+          <div className="text-gray-600 mb-4 h-[600px] overflow-y-auto p-2 rounded">
+            {description}
+          </div>
           <div className="stats shadow mb-4">
             <div className="stat">
               <div className="stat-figure text-primary">
