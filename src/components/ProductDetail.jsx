@@ -26,16 +26,16 @@ const ProductDetail = () => {
             className="object-cover w-full h-96 rounded"
           />
         </figure>
-        <div className="carousel flex justify-center">
+        <div className="carousel flex justify-center mt-4">
           {product.pictures && product.pictures.length > 0 ? (
             product.pictures.map((picture, index) => (
-            <div
+              <div
                 key={index}
                 className={`carousel-item cursor-pointer ${currentImage === index ? 'border-2 border-primary box-border' : 'box-border'}`}
                 onClick={() => setCurrentImage(index)}
                 style={{ width: '6rem', height: '6rem' }}
               >
-                <img src={picture.url} alt={product.title} className="object-cover h-24 w-24" />
+                <img src={picture.url} alt={product.title} className="object-cover h-full w-full" />
               </div>
             ))
           ) : (
@@ -65,9 +65,9 @@ const ProductDetail = () => {
             Añadir al carrito
           </button>
           <p className="text-gray-600 mb-4">{description}</p>
-          <div className="stats shadow">
+          <div className="stats shadow mb-4">
             <div className="stat">
-              <div className="stat-figure text-secondary">
+              <div className="stat-figure text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
               <div className="stat-title">Condición</div>
@@ -89,8 +89,7 @@ const ProductDetail = () => {
             </div>
           </div>
 
-
-          <div className="stats shadow mt-4">
+          <div className="stats shadow mb-4">
             <div className="stat">
               <div className="stat-figure text-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -98,7 +97,7 @@ const ProductDetail = () => {
               <div className="stat-title">Ubicación</div>
               <div className="stat-value">{product.seller_address.city.name}, {product.seller_address.state.name}</div>
             </div>
-        </div>
+          </div>
 
           <div className="stats shadow mt-4">
             {product.attributes.map((attribute) => (
