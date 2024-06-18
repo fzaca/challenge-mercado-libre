@@ -6,6 +6,7 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar';
+import GitHub from './components/GitHub';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,9 +17,11 @@ function App() {
 
   return (
     <CartProvider>
+      <GitHub/>
       <Router>
-        <div className="App max-w-screen-md mx-auto p-4">
+        <div className="App max-w-screen-md mx-auto p-4 relative">
           <Navbar onSearch={handleSearch} />
+
           <Routes>
             <Route path="/" element={<HomePage searchQuery={searchQuery} />} />
             <Route path="/product/:id" element={<ProductPage />} />
