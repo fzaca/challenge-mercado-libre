@@ -45,7 +45,7 @@ const ProductDetail = () => {
           )}
         </div>
         <div className="card-body">
-          <h1 className="card-title text-2xl font-bold">{product.title}</h1>
+          <h1 className="card-title text-2xl font-bold prose">{product.title}</h1>
           <p className="text-lg text-gray-700">${product.price.toFixed(2)}</p>
           <div className="flex items-center mb-4">
             <span className="mr-2">Cantidad:</span>
@@ -64,7 +64,7 @@ const ProductDetail = () => {
           >
             Añadir al carrito
           </button>
-          <div className="text-gray-600 mb-4 max-h-[600px] overflow-y-auto p-2 rounded">
+          <div className="text-gray-600 mb-4 max-h-[600px] overflow-y-auto p-2 rounded prose">
             {description}
           </div>
           <div className="stats shadow mb-4">

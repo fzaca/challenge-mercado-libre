@@ -16,7 +16,7 @@ const ProductList = ({ products }) => {
           <Link to={`/product/${product.id}`} className="card card-side bg-base-100 shadow-xl hover:bg-accent transition-transform duration-300 ease-in-out transform hover:scale-105 m-2 p-2 bg-primary glass">
             <ImageWithLoader src={product.thumbnail} alt={product.title} />
             <div className="card-body p-4">
-              <h2 className="card-title text-lg font-semibold">{truncateTitle(product.title, 40)}</h2>
+              <h2 className="card-title text-lg font-semibold prose">{truncateTitle(product.title, 40)}</h2>
               <p className="text-sm text-gray-500">${product.price.toFixed(2)}</p>
             </div>
           </Link>

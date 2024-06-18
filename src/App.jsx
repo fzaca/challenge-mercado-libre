@@ -18,7 +18,7 @@ function App() {
     <CartProvider>
       <GitHub/>
       <Router>
-        <div className="App max-w-screen-md mx-auto p-4 relative">
+        <div className="App max-w-screen-md mx-auto p-4 relative ">
           <Navbar onSearch={handleSearch} />
 
           <Routes>

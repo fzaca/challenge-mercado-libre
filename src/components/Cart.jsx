@@ -37,7 +37,7 @@ const Cart = () => {
               <div key={product.id} className="cart-item flex items-center mb-4">
                 <img src={product.thumbnail} alt={product.title} className="w-24 h-24 object-cover rounded mr-4 mask mask-squircle" />
                 <div className="flex-1">
-                  <Link to={`/product/${product.id}`} className="text-lg font-semibold hover:underline">
+                  <Link to={`/product/${product.id}`} className="text-lg font-semibold hover:underline prose">
                     {product.title}
                   </Link>
                   <p className="text-gray-700">${(product.price * product.quantity).toFixed(2)}</p>
