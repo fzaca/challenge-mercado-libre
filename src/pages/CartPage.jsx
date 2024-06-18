@@ -3,7 +3,7 @@ import Cart from '../components/Cart';
 
 const CartPage = () => {
   return (
-    <div className="cart-page">
+    <div className="container mx-auto p-4">
       <Cart />
     </div>
   );

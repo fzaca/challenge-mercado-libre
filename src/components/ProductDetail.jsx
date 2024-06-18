@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const description = descriptionData ? descriptionData.plain_text : product.description;
 
   return (
-    <div className="product-detail container mx-auto p-4">
+    <div className="product-detail container mx-auto">
       <div className="card w-full bg-base-300 shadow-xl glass">
         <figure>
           <img
