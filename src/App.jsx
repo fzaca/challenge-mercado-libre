@@ -4,7 +4,6 @@ import { CartProvider } from './context/CartContext';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar';
 import GitHub from './components/GitHub';
 
@@ -26,7 +25,6 @@ function App() {
             <Route path="/" element={<HomePage searchQuery={searchQuery} />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </div>
       </Router>
