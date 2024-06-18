@@ -61,7 +61,12 @@ const Cart = () => {
               </div>
             ))}
             <div className="mt-4">
-              <h3 className="text-lg font-bold">Total: ${total.toFixed(2)}</h3>
+              <div className="text-primary-content">
+                <div className="stat">
+                <div className="stat-title">Total</div>
+                  <div className="stat-value text-primary">${total.toFixed(2)}</div>
+                </div>
+              </div>
             </div>
             <div className="flex justify-between mt-4">
               <button onClick={clearCart} className="btn btn-outline">
