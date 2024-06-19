@@ -26,13 +26,27 @@ https://api.mercadolibre.com/sites/MLA/search?q=valorBuscado
 - Detalles del Producto:  
 https://api.mercadolibre.com/items/ID_DEL_PRODUCTO
 
-## For run:
-* Clone this repository:
+## Instalación y Ejecución:
+* Clonar el Repositorio:
 ```sh
 git clone https://github.com/fzaca/challenge-mercado-libre.git
 ```
-* Run this commands:
+* Instalar dependencias:
 ```sh
   npm install
+```
+* Ejecutar la aplicacion:
+```sh
   npm run dev
 ```
+
+## Preview
+
+### Home Page
+![Home Page](./docs/home_page.png)
+
+### Detalle del Producto
+![Product Detail](./docs/product_detail.png)
+
+### Carrito de Compras
+![Carrito](./docs/cart.png)
