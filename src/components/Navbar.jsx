@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import SearchBar from './SearchBar';
-import ThemeController from "./ThemeController";
+import ThemeController from './ThemeController';
 
 const Navbar = ({ onSearch }) => {
   const { cart } = useContext(CartContext);
   const totalItems = cart.length;
-  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <div className="navbar bg-base-100 flex flex-col sm:flex-row sm:justify-between items-center">
@@ -49,7 +49,7 @@ const Navbar = ({ onSearch }) => {
       </div>
       <SearchBar onSearch={onSearch} className="navbar-center w-full sm:w-auto mt-2 sm:mt-0" />
       <div className="navbar-end hidden sm:flex items-center space-x-4 w-auto">
-        <ThemeController/>
+        <ThemeController />
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
